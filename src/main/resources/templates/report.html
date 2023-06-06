@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>admin</title>
+    <link rel="stylesheet" href="admin.css">
+    
+</head>
+
+<body>
+
+
+<main class="table">
+    <section class="table__header">
+        <h1 style="color: white; padding-left: 20px;">Products Summary</h1>
+
+    </section>
+    <section class="table__body">
+        <table>
+            <thead >
+            <tr>
+                <th> Name <span class="icon-arrow">&UpArrow;</span></th>
+                <th> Quantity <span class="icon-arrow">&UpArrow;</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product:${products}" >
+                <td th:text = "*{product.getName()}"></td>
+                <td th:text = "*{product.getQuantity()}"></td>
+
+            </tbody>
+        </table>
+    </section>
+</main>
+<main class="table">
+    <section class="table__header">
+                <h1 style="color: white; padding-left: 20px;">Categories</h1>
+    </section>
+    <section class="table__body">
+    <table>
+        <thead >
+        <tr>
+            <th> Id <span class="icon-arrow">&UpArrow;</span></th>
+            <th> Category <span class="icon-arrow">&UpArrow;</span></th>
+        </tr>
+        </thead>
+        <tr th:each="category:${categories}" >
+            <td th:text = "*{category.getId()}"></td>
+            <td th:text = "*{category.getType()}"></td>
+        </tr>
+            </table>
+    </section>
+        </main>
+
+
+
+<script src="admin.js"></script>
+</body>
+
+</html>

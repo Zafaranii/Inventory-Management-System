@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" title="Coding design" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+    <link rel="stylesheet" href="product.css">
+    
+</head>
+
+<body>
+
+
+    <main class="table">
+        <section class="table__header">
+            <h1 style="color: white; padding-left: 20px;">Inventory</h1>
+            <a href="/addprodredirect"><input type="submit" class="submit" value="Add" style="width: 150px; height: 45px;"></a>
+            <a href="/deleteprodredirect"><input type="submit" class="submit" value="Delete" style="width: 150px; height: 45px;"></a>
+            <a href="/updateprodredirect"><input type="submit" class="submit" value="Update" style="width: 150px; height: 45px;"></a>
+            <div class="input-group" >
+                <input type="search" placeholder="Search Data...">
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+
+                <thead >
+                    <tr>
+                        <th> id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> name <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> type <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> supplier <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> price <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> expiration <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> production Date <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> quantity <span class="icon-arrow">&UpArrow;</span></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product:${products}" >
+                        <td th:text = "*{product.getId()}"></td>
+                        <td th:text = "*{product.getName()}"></td>
+                        <td th:text = "*{product.getType()}">  </td>
+                        <td th:text = "*{product.getSupplier()}"></td>
+                        <td th:text = "*{product.getPrice()}"> </td>
+                        <td th:text = "*{product.getExpiration()}">  </td>
+                        <td th:text = "*{product.getProduction()}">  </td>
+                        <td th:text = "*{product.getQuantity()}">  </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+    <a href="/Productexp"><button style="margin-bottom: 600px; margin-left: 40px; width: 200px; height:55px " data-modal-target="#modal" class="submit">View Nearly Expired Products</button></a>
+    <!--<button style="margin-bottom: 600px; margin-left: 40px; width: 150px; height:55px " data-modal-target="#modal" class="submit">Notify me</button>-->
+    <script src="popup.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

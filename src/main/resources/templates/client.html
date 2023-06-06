@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" title="Coding design" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>client</title>
+    <link rel="stylesheet" href="client.css">
+    
+</head>
+<style>
+
+.order{
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    margin-right: 15px;
+    height: 45px;
+    outline: none;
+    width: 200px;
+    color: rgb(255,153,0);
+    background: rgba(0,0,0, 0.7);
+    cursor: pointer;
+    transition: .3s;
+    padding: 3px 6px 3px 6px;
+}
+.order:hover{
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.9);
+    background-color: rgb(255,153,0);
+    color: black;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+</style>
+
+<body>
+   
+
+    <main class="table">
+        <section class="table__header">
+            <h1 style="color: white; padding-left: 20px;">Inventory</h1>
+            <div class="submit"><a th:text="${Invoice}" > <input class="total" ></a>
+            </div>
+            <div  >
+                <a href="/click"><input type="submit" class="submit" value="Add" style="width: 150px; height: 45px;"></a>
+
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead >
+                    <tr>
+                        <th> Id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Name <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Type <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> supplier <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Price <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Exp. Date <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> production Date <span class="icon-arrow">&UpArrow;</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product:${products}" >
+                    <td th:text = "*{product.getId()}"></td>
+                    <td th:text = "*{product.getName()}"></td>
+                    <td th:text = "*{product.getType()}">  </td>
+                    <td th:text = "*{product.getSupplier()}"></td>
+                    <td th:text = "*{product.getPrice()}"> </td>
+                    <td th:text = "*{product.getExpiration()}">  </td>
+                    <td th:text = "*{product.getProduction()}">  </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </section>
+        
+    </main>
+
+    <!--
+    <section class="input">  
+            
+        <div class="input-field">        
+            <a href="/gui/Add/Prodfeaturesadd.html"><input type="submit" class="submit" value="Add Product" id=""></a>
+        </div>
+
+        <div class="input-field">        
+            <a href="/gui/Add/Prodfeaturesadd.html"><input type="submit" class="submit" value="Update Product" id=""></a>
+        </div>
+
+        <div class="input-field">
+            <a href="/gui/Add/Prodfeaturesadd.html"><input type="submit" class="submit" value="Delete Product" id=""></a>
+        </div>
+    </section>
+    -->
+    
+    <script src="client.js"></script>
+</body>
+
+</html>

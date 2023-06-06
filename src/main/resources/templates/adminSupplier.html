@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>admin</title>
+    <link rel="stylesheet" href="admin.css">
+    
+</head>
+
+<body>
+   
+
+    <main class="table">
+        <section class="table__header">
+            <h1 style="color: white; padding-left: 20px;">Inventory</h1>
+            <a href="/addsupplierredirect"><input type="submit" class="submit" value="Add" style="width: 150px; height: 45px;"></a>
+            <a href="/deletersupplierredirect"><input type="submit" class="submit" value="Delete" style="width: 150px; height: 45px;"></a>
+            <a href="/updatesupplierredirect"><input type="submit" class="submit" value="Update" style="width: 150px; height: 45px;"></a>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead >
+                    <tr>
+                        <th> Id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Name <span class="icon-arrow">&UpArrow;</span></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="supplier:${suppliers}" >
+                    <td th:text = "*{supplier.getId()}"></td>
+                    <td th:text = "*{supplier.getName()}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

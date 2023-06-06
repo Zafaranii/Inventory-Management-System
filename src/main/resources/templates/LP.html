@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>landing page</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 15px;
+            
+        }
+
+        body {
+            background-color: rgb(20,110,180);
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            background-color: rgba(35,47,62, 0.427);
+            text-align: center;
+            width: 90%;
+            margin-top: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(30px);
+        }
+
+        main .text {
+            padding: 20px;
+            color: white;
+        }
+
+        .text p {
+            opacity: 0.6;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 900;
+            font-size: x-large;
+        }
+
+        .cardSection {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            justify-items: center;
+            padding: 20px;
+            column-gap: 15px;
+        }
+
+        .card {
+            text-align: left;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: white;
+            min-width: 55vw;
+            max-width: 550px;
+            height: 60vh;
+            border: 1px solid;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.5 ease;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            flex: 1;
+        }
+        .background ,.background1, .background2{
+            flex: 4;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .background{
+            background-image: url("/images/admin2.png")
+        }
+        .background1{
+            background-image: url("/images/client.png")
+        }
+        .background2{
+            background-image: url("/images/inv1.png")
+        }
+        .pricing {
+            flex: 1;
+        }
+
+        .card:hover{
+            box-shadow: 10px 10px 65px rgba(255,153,0,0.7);
+            scale: 1.05;
+        }
+
+
+        .card .b a{
+            display: grid;
+            place-items: center;
+            color:  rgb(255,153,0);;
+            text-decoration: none;
+        }
+
+        .card .title {
+            padding: 5px;
+            font-size: 2em;
+            font-weight: 700;
+            display: grid;
+            place-items: center;
+        
+        }
+
+        .title i {
+            margin: 0 7px 0 7px;
+
+        }
+
+        .card p {
+            opacity: 0.5;
+        }
+
+        .card .options {
+            height: 40%;
+
+        }
+
+
+        .pricing span {
+            font-size: x-small;
+            font-weight: 800;
+            opacity: 0.5;
+        }
+
+        .card button{
+            margin: 10px;
+            padding: 10px;
+            width: 90%;
+            background-color: rgb(0,0,0);
+            border: none;
+            cursor: pointer;
+            color: 	 rgb(255,153,0);
+            font-size: 1.2em;
+            font-weight: 800;
+            border-radius: 15px;
+        
+        }
+        .card button:hover {
+            color: rgb(0,0,0);
+            background-color:  rgb(255,153,0);
+        }
+
+        .active {
+            background-color: #252b49;
+            color: #fff;
+            transition: background-color 1s ease, transform 1s ease;
+        }
+
+
+        .active>button {
+            color: #fff;
+        }
+        @media screen and (min-width:768px) {
+
+            .card {
+                min-width: 45vw;
+                max-width: 50vw;
+            }
+        }
+
+        @media screen and (min-width:908px) {
+
+            .card {
+                max-width: 50vw;
+            }
+
+            .active {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media screen and (min-width:1024px) {
+
+            main {
+                width: 92vw;
+            }
+
+            .cardSection {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+
+            }
+
+            .card {
+                min-width: 26vw;
+                min-height: 60vh;
+                font-size: small;
+            }
+        }
+    </style>
+
+    <body>
+        <main>
+            <div class="text">
+                <h1>Welcome to our System</h1>
+                <p>Please, choose your Role</p>
+            </div>
+
+            <div class="cardSection">
+                <div class="card">
+                    <div class="title">
+                        <h3 style="margin: 0;">Admin</h3>
+                    </div>
+
+                    <div class="background"> 
+                    </div>
+
+                    <div class="pricing">
+                    </div>
+                        
+                    <div class="b">
+                        <a href="/Admin"><button class="btn--choose btn" onclick="selectBtn()">Enter</button></a>
+                    </div>
+                </div>
+                    
+                <div class="card">
+                    <div class="title">
+                        <i class="fa-solid fa-client"></i>
+                        Client
+                    </div>
+
+                    <div class="background1">    
+                    </div>
+                    
+                    <div class="pricing">
+                    </div>
+                
+                    <div class="b">
+                        <a href="/Client"><button class="btn--choose btn" onclick="selectBtn()">Sign Up</button></a>
+                    </div>
+                </div>
+                    
+                <div class="card">
+                    <div class="title">
+                        <i class="fa-solid fa-client"></i>
+                        Inventory
+                    </div>
+                    
+                    <div class="background2">
+                    </div>
+                    
+                    <div class="pricing">
+                    </div>
+                    </a>
+                    <div class="b">
+                       <a href="/Inventory"><button class="btn--choose btn" onclick="selectBtn()">Enter</button></a>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+      
+    </body>
+
+</html>
